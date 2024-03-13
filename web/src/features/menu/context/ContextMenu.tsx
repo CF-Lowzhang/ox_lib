@@ -36,6 +36,10 @@ const useStyles = createStyles((theme) => ({
     color: theme.colors.dark[0],
     padding: 6,
     textAlign: 'center',
+    fontSize: 24,
+    border:'0.2vw solid rgba(123,144,183,0.3)', 
+    borderRadius:'0.4vw',
+    lineHeight:1.3,
   },
   buttonsContainer: {
     height: 560,

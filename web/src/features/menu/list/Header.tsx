@@ -8,15 +8,18 @@ const useStyles = createStyles((theme) => ({
     borderTopRightRadius: theme.radius.md,
     backgroundColor: theme.colors.dark[6],
     height: 60,
+    lineHeigh: 1.55,
     width: 384,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    border:'0.2vw solid rgba(123,144,183,0.3)', 
+    borderRadius:'0.4vw',
   },
   heading: {
-    fontSize: 24,
+    fontSize: 26,
     textTransform: 'uppercase',
-    fontWeight: 500,
+    fontWeight: 1000,
   },
 }));
 

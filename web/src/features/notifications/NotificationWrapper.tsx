@@ -9,7 +9,8 @@ import LibIcon from '../../components/LibIcon';
 
 const useStyles = createStyles((theme) => ({
   container: {
-    width: 300,
+    /*width: 300,*/
+    width:'17vw',
     height: 'fit-content',
     backgroundColor: theme.colors.dark[6],
     color: theme.colors.dark[0],
@@ -17,19 +18,22 @@ const useStyles = createStyles((theme) => ({
     borderRadius: theme.radius.sm,
     fontFamily: 'Roboto',
     boxShadow: theme.shadows.sm,
+    fontSize:24,
   },
   title: {
     fontWeight: 500,
     lineHeight: 'normal',
   },
   description: {
-    fontSize: 12,
+    /*fontSize: 12,*/
+    fontSize:18,
     color: theme.colors.dark[2],
     fontFamily: 'Roboto',
     lineHeight: 'normal',
   },
   descriptionOnly: {
-    fontSize: 14,
+    /*fontSize: 14,*/
+    fontSize:20,
     color: theme.colors.dark[2],
     fontFamily: 'Roboto',
     lineHeight: 'normal',
@@ -155,7 +159,7 @@ const Notifications: React.FC = () => {
           }}
           className={`${classes.container}`}
         >
-          <Group noWrap spacing={12}>
+          <Group noWrap spacing={18}>
             {data.icon && (
               <>
                 {!data.iconColor ? (
@@ -169,22 +173,23 @@ const Notifications: React.FC = () => {
                         ? 'yellow'
                         : 'blue'
                     }
-                    style={{ alignSelf: !data.alignIcon || data.alignIcon === 'center' ? 'center' : 'start' }}
+                    style={{fontSize:19.8, alignSelf: !data.alignIcon || data.alignIcon === 'center' ? 'center' : 'start' }}
                     radius="xl"
                     size={32}
                   >
-                    <LibIcon icon={data.icon} fixedWidth size="lg" animation={data.iconAnimation} />
+                    <LibIcon icon={data.icon} fixedWidth size="xl" animation={data.iconAnimation} />
                   </Avatar>
                 ) : (
                   <LibIcon
                     icon={data.icon}
                     animation={data.iconAnimation}
                     style={{
+                      fontSize:19.8,
                       color: data.iconColor,
                       alignSelf: !data.alignIcon || data.alignIcon === 'center' ? 'center' : 'start',
                     }}
                     fixedWidth
-                    size="lg"
+                    size="xl"
                   />
                 )}
               </>

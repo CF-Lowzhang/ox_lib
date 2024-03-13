@@ -31,7 +31,7 @@ const useStyles = createStyles((theme, params: { position?: MenuPosition; itemCo
   },
   buttonsWrapper: {
     height: 'fit-content',
-    maxHeight: 415,
+    maxHeight: 550,
     overflow: 'hidden',
     borderRadius: params.itemCount <= 6 || params.selected === params.itemCount - 1 ? theme.radius.md : undefined,
     backgroundColor: theme.colors.dark[8],

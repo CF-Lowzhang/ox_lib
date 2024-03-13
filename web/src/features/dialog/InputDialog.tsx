@@ -104,7 +104,7 @@ const InputDialog: React.FC = () => {
         closeOnEscape={fields.options?.allowCancel !== false}
         closeOnClickOutside={false}
         size="xs"
-        styles={{ title: { textAlign: 'center', width: '100%', fontSize: 18 } }}
+        styles={{ title: { textAlign: 'center', width: '100%', fontSize: 26, fontWeight: 1000,border:'0.2vw solid rgba(123,144,183,0.3)', borderRadius:'0.4vw' } }}
         title={fields.heading}
         withCloseButton={false}
         overlayOpacity={0.5}
@@ -157,11 +157,12 @@ const InputDialog: React.FC = () => {
                 variant="default"
                 onClick={() => handleClose()}
                 mr={3}
+                style={{ fontSize: '18px', letterSpacing: '3px'}}
                 disabled={fields.options?.allowCancel === false}
               >
                 {locale.ui.cancel}
               </Button>
-              <Button uppercase variant="light" type="submit">
+              <Button uppercase variant="light" type="submit" style={{ fontSize: '18px', letterSpacing: '3px'}}>
                 {locale.ui.confirm}
               </Button>
             </Group>
