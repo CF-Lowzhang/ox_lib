@@ -41,12 +41,12 @@ const useStyles = createStyles((theme, params: { disabled?: boolean; readOnly?: 
   },
   description: {
     color: params.disabled ? theme.colors.dark[3] : theme.colors.dark[2],
-    fontSize: 12,
+    fontSize: 16,
   },
   dropdown: {
     padding: 10,
     color: theme.colors.dark[0],
-    fontSize: 14,
+    fontSize: 20,
     maxWidth: 256,
     width: 'fit-content',
     border: 'none',
