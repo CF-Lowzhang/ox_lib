@@ -40,6 +40,7 @@ const useStyles = createStyles((theme) => ({
     border:'0.2vw solid rgba(123,144,183,0.3)', 
     borderRadius:'0.4vw',
     lineHeight:1.3,
+    fontWeight:800,
   },
   buttonsContainer: {
     height: 560,

@@ -1,5 +1,6 @@
 local contextMenus = {}
 local openContextMenu = nil
+local controlFlag = false
 
 ---@class ContextMenuItem
 ---@field title? string
@@ -40,7 +41,7 @@ local function closeContext(_, cb, onExit)
     if (cb or onExit) and contextMenus[openContextMenu].onExit then contextMenus[openContextMenu].onExit() end
 
     if not cb then SendNUIMessage({ action = 'hideContext' }) end
-
+    controlFlag = false
     openContextMenu = nil
 end
 
@@ -51,7 +52,11 @@ function lib.showContext(id)
     local data = contextMenus[id]
     openContextMenu = id
 
-    lib.setNuiFocus(false)
+    lib.setNuiFocus(true)
+    if not controlFlag then
+        controlFlag = true 
+        ContorlLoop()
+    end
 
     SendNuiMessage(json.encode({
         action = 'showContext',
@@ -63,6 +68,21 @@ function lib.showContext(id)
         }
     }, { sort_keys = true }))
 end
+
+ContorlLoop = function()
+    Citizen.CreateThread(function()
+        while controlFlag do
+            Citizen.Wait(1)
+            DisableControlAction(0, 25, true) -- Input Aim
+            DisableControlAction(0, 24, true) -- Input Attack
+            DisableControlAction(0, 0, true) -- INPUT_NEXT_CAMERA V
+            DisableControlAction(0, 1, true) -- MOUSE RIGHT
+            DisableControlAction(0, 2, true) -- MOUSE DOWN
+        end
+    end)    
+end
+
+
 
 ---@param context ContextMenuProps | ContextMenuProps[]
 function lib.registerContext(context)

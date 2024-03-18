@@ -41,7 +41,7 @@ const useStyles = createStyles((theme, params: { disabled?: boolean; readOnly?: 
   },
   description: {
     color: params.disabled ? theme.colors.dark[3] : theme.colors.dark[2],
-    fontSize: 16,
+    fontSize: 18,
   },
   dropdown: {
     padding: 10,
@@ -67,6 +67,10 @@ const useStyles = createStyles((theme, params: { disabled?: boolean; readOnly?: 
   },
   buttonTitleText: {
     overflowWrap: 'break-word',
+    fontSize: 20,
+    fontWeight: 'normal',
+    paddingLeft: 6,
+
   },
   buttonArrowContainer: {
     justifyContent: 'center',

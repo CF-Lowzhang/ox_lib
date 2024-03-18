@@ -46,17 +46,17 @@ const useStyles = createStyles((theme, params: { iconColor?: string }) => ({
   label: {
     color: theme.colors.dark[2],
     textTransform: 'uppercase',
-    fontSize: 12,
+    fontSize: 18,
     verticalAlign: 'middle',
   },
   chevronIcon: {
-    fontSize: 14,
+    fontSize: 16,
     color: theme.colors.dark[2],
   },
   scrollIndexValue: {
     color: theme.colors.dark[2],
     textTransform: 'uppercase',
-    fontSize: 14,
+    fontSize: 16,
   },
   progressStack: {
     width: '100%',
