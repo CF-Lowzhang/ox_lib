@@ -73,6 +73,9 @@ ContorlLoop = function()
     Citizen.CreateThread(function()
         while controlFlag do
             Citizen.Wait(1)
+            if lib.getOpenContextMenu() == nil then
+                controlFlag = false
+            end
             DisableControlAction(0, 25, true) -- Input Aim
             DisableControlAction(0, 24, true) -- Input Attack
             DisableControlAction(0, 0, true) -- INPUT_NEXT_CAMERA V
