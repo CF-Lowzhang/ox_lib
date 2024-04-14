@@ -193,7 +193,6 @@ function lib.clearRadialItems()
     if isOpen then
         refreshRadial()
     end
-    
 end
 
 RegisterNUICallback('radialClick', function(index, cb)
