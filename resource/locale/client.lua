@@ -27,6 +27,4 @@ RegisterNUICallback('init', function(_, cb)
     })
 end)
 
-if not settings.locale then lib.setLocale(GetConvar('ox:locale', 'zh-tw')) end
-
 lib.locale(settings.locale)
