@@ -49,7 +49,7 @@ function lib.locale(key)
         warn(warning:format(lang))
 
         if lang ~= 'en' then
-            locales = json.decode(LoadResourceFile(cache.resource, 'locales/en.json'))
+            locales = json.decode(LoadResourceFile(cache.resource, 'locales/zh-tw.json'))
 
             if not locales then
                 warn(warning:format('en'))

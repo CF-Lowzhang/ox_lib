@@ -2,7 +2,7 @@ local settings = require 'resource.settings'
 
 local function loadLocaleFile(key)
     local file = LoadResourceFile(cache.resource, ('locales/%s.json'):format(key))
-        or LoadResourceFile(cache.resource, 'locales/en.json')
+        or LoadResourceFile(cache.resource, 'locales/zh-tw.json')
 
     return file and json.decode(file) or {}
 end
@@ -27,6 +27,6 @@ RegisterNUICallback('init', function(_, cb)
     })
 end)
 
-if not settings.locale then lib.setLocale(GetConvar('ox:locale', 'en')) end
+if not settings.locale then lib.setLocale(GetConvar('ox:locale', 'zh-tw')) end
 
 lib.locale(settings.locale)

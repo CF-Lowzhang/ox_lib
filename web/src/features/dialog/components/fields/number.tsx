@@ -25,8 +25,8 @@ const NumberField: React.FC<Props> = (props) => {
       ref={controller.field.ref}
       onBlur={controller.field.onBlur}
       onChange={controller.field.onChange}
-      label={props.row.label}
-      description={props.row.description}
+      label={<span style={{ fontSize: '20px' }}>{props.row.label}</span>}
+      description={<span style={{ fontSize: '14px' }}>{props.row.description}</span>}
       defaultValue={props.row.default}
       min={props.row.min}
       max={props.row.max}

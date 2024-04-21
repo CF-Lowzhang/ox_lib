@@ -25,8 +25,8 @@ const InputField: React.FC<Props> = (props) => {
         <TextInput
           {...props.register}
           defaultValue={props.row.default}
-          label={props.row.label}
-          description={props.row.description}
+          label={<span style={{ fontSize: '20px' }}>{props.row.label}</span>}
+          description={<span style={{ fontSize: '14px' }}>{props.row.description}</span>}
           icon={props.row.icon && <LibIcon icon={props.row.icon} fixedWidth />}
           placeholder={props.row.placeholder}
           minLength={props.row.min}
@@ -38,8 +38,8 @@ const InputField: React.FC<Props> = (props) => {
         <PasswordInput
           {...props.register}
           defaultValue={props.row.default}
-          label={props.row.label}
-          description={props.row.description}
+          label={<span style={{ fontSize: '20px' }}>{props.row.label}</span>}
+          description={<span style={{ fontSize: '14px' }}>{props.row.description}</span>}
           icon={props.row.icon && <LibIcon icon={props.row.icon} fixedWidth />}
           placeholder={props.row.placeholder}
           minLength={props.row.min}

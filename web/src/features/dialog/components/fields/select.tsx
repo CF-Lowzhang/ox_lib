@@ -28,8 +28,8 @@ const SelectField: React.FC<Props> = (props) => {
           onBlur={controller.field.onBlur}
           onChange={controller.field.onChange}
           disabled={props.row.disabled}
-          label={props.row.label}
-          description={props.row.description}
+          label={<span style={{ fontSize: '20px' }}>{props.row.label}</span>}
+          description={<span style={{ fontSize: '14px' }}>{props.row.description}</span>}
           withAsterisk={props.row.required}
           clearable={props.row.clearable}
           searchable={props.row.searchable}
@@ -46,8 +46,8 @@ const SelectField: React.FC<Props> = (props) => {
               onBlur={controller.field.onBlur}
               onChange={controller.field.onChange}
               disabled={props.row.disabled}
-              label={props.row.label}
-              description={props.row.description}
+              label={<span style={{ fontSize: '20px' }}>{props.row.label}</span>}
+              description={<span style={{ fontSize: '14px' }}>{props.row.description}</span>}
               withAsterisk={props.row.required}
               clearable={props.row.clearable}
               searchable={props.row.searchable}

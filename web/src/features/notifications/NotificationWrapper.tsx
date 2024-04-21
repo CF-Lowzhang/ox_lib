@@ -113,6 +113,7 @@ const durationCircle = keyframes({
   '100%': { strokeDasharray: `${15.1 * 2 * Math.PI}, 0` },
 });
 
+
 const Notifications: React.FC = () => {
   const { classes } = useStyles();
 
@@ -233,17 +234,13 @@ const Notifications: React.FC = () => {
                     variant={tinycolor(iconColor).getAlpha() === 0 ? undefined : 'light'}
                     style={{ alignSelf: !data.alignIcon || data.alignIcon === 'center' ? 'center' : 'start' }}
                   >
-                  <LibIcon
-                    icon={data.icon}
-                    fixedWidth
-                    color={iconColor}
-                    animation={data.iconAnimation}
-                    style={{
-                      fontSize:19.8,
-                      color: data.iconColor,                      
-                    }}
-                    size="xl"
-                  />
+                    <LibIcon
+                      icon={data.icon}
+                      fixedWidth
+                      color={iconColor}
+                      animation={data.iconAnimation}
+                    />
+                  </ThemeIcon>
                 )}
               </>
             )}
@@ -271,5 +268,6 @@ const Notifications: React.FC = () => {
 
   return <Toaster />;
 };
+
 
 export default Notifications;

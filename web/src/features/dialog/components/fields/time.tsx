@@ -24,8 +24,8 @@ const TimeField: React.FC<Props> = (props) => {
       ref={controller.field.ref}
       onBlur={controller.field.onBlur}
       onChange={(date) => controller.field.onChange(date ? date.getTime() : null)}
-      label={props.row.label}
-      description={props.row.description}
+      label={<span style={{ fontSize: '20px' }}>{props.row.label}</span>}
+      description={<span style={{ fontSize: '14px' }}>{props.row.description}</span>}
       disabled={props.row.disabled}
       format={props.row.format || '12'}
       withAsterisk={props.row.required}

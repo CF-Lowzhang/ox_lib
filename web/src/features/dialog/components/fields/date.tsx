@@ -27,8 +27,8 @@ const DateField: React.FC<Props> = (props) => {
           onBlur={controller.field.onBlur}
           // Workaround to use timestamp instead of Date object in values
           onChange={(date) => controller.field.onChange(date ? date.getTime() : null)}
-          label={props.row.label}
-          description={props.row.description}
+          label={<span style={{ fontSize: '20px' }}>{props.row.label}</span>}
+          description={<span style={{ fontSize: '14px' }}>{props.row.description}</span>}
           placeholder={props.row.format}
           disabled={props.row.disabled}
           inputFormat={props.row.format}
@@ -54,8 +54,8 @@ const DateField: React.FC<Props> = (props) => {
           onChange={(dates) =>
             controller.field.onChange(dates.map((date: Date | null) => (date ? date.getTime() : null)))
           }
-          label={props.row.label}
-          description={props.row.description}
+          label={<span style={{ fontSize: '20px' }}>{props.row.label}</span>}
+          description={<span style={{ fontSize: '14px' }}>{props.row.description}</span>}
           placeholder={props.row.format}
           disabled={props.row.disabled}
           inputFormat={props.row.format}
