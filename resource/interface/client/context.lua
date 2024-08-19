@@ -47,7 +47,11 @@ end
 
 ---@param id string
 function lib.showContext(id)
-    if not contextMenus[id] then error('No context menu of such id found.') end
+    if not contextMenus[id] then 
+        --print(json.encode(contextMenus))
+        error('No context menu of such id found.')
+
+    end
 
     local data = contextMenus[id]
     openContextMenu = id
@@ -92,8 +96,10 @@ function lib.registerContext(context)
     for k, v in pairs(context) do
         if type(k) == 'number' then
             contextMenus[v.id] = v
+            --print('registerContext',v.id)
         else
             contextMenus[context.id] = context
+            --print('registerContext',context.id)
             break
         end
     end

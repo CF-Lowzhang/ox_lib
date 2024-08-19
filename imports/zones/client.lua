@@ -422,6 +422,29 @@ lib.zones = {
     getAllZones = function() return Zones end,
 
     getCurrentZones = function() return insideZones end,
+
+    DeleteZones = function(pid)
+        for _ , Zone in pairs(Zones) do  
+            if Zone.pid == pid then 
+                local ZID = Zone.id 
+                Zones[ZID] = nil
+                insideZones[ZID] = nil
+                enteringZones[ZID] = nil
+                exitingZones[ZID] = nil
+                return true
+            end
+        end
+        return false
+    end,
+
+    ExistZones = function(pid)
+        for _ , Zone in pairs(Zones) do  
+            if Zone.pid == pid then 
+                return true
+            end
+        end
+        return false
+    end,
 }
 
 return lib.zones
