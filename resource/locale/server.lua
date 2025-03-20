@@ -1,1 +1,1 @@
-function lib.getLocaleKey() return GetConvar('ox:locale', 'en') end
+function lib.getLocaleKey() return GetConvar('ox:locale', 'zh-tw') end

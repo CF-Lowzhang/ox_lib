@@ -146,13 +146,29 @@ lib.points = {
 
 		return self
 	end,
-
     getAllPoints = function() return points end,
 
     getNearbyPoints = function() return nearbyPoints end,
 
     ---@return CPoint?
 	getClosestPoint = function() return closestPoint end,
+	DeletePoint = function(pid)
+		for _, point in pairs(points) do
+			if point.pid == pid then 
+				points[point.id] = nil
+				return true
+			end
+		end
+		return false
+	end,
+	ExistPoint = function(pid)
+		for _, point in pairs(points) do
+			if point.pid == pid then 
+				return true 
+			end
+		end
+		return false
+	end,
 }
 
 ---@deprecated

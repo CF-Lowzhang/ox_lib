@@ -1,5 +1,6 @@
 local contextMenus = {}
 local openContextMenu = nil
+local controlFlag = false
 
 ---@class ContextMenuItem
 ---@field title? string
@@ -40,18 +41,26 @@ local function closeContext(_, cb, onExit)
     if (cb or onExit) and contextMenus[openContextMenu].onExit then contextMenus[openContextMenu].onExit() end
 
     if not cb then SendNUIMessage({ action = 'hideContext' }) end
-
+    controlFlag = false
     openContextMenu = nil
 end
 
 ---@param id string
 function lib.showContext(id)
-    if not contextMenus[id] then error('No context menu of such id found.') end
+    if not contextMenus[id] then 
+        --print(json.encode(contextMenus))
+        error('No context menu of such id found.')
+
+    end
 
     local data = contextMenus[id]
     openContextMenu = id
 
-    lib.setNuiFocus(false)
+    lib.setNuiFocus(true)
+    if not controlFlag then
+        controlFlag = true 
+        ContorlLoop()
+    end
 
     SendNuiMessage(json.encode({
         action = 'showContext',
@@ -64,13 +73,33 @@ function lib.showContext(id)
     }, { sort_keys = true }))
 end
 
+ContorlLoop = function()
+    Citizen.CreateThread(function()
+        while controlFlag do
+            Citizen.Wait(1)
+            if lib.getOpenContextMenu() == nil then
+                controlFlag = false
+            end
+            DisableControlAction(0, 25, true) -- Input Aim
+            DisableControlAction(0, 24, true) -- Input Attack
+            DisableControlAction(0, 0, true) -- INPUT_NEXT_CAMERA V
+            DisableControlAction(0, 1, true) -- MOUSE RIGHT
+            DisableControlAction(0, 2, true) -- MOUSE DOWN
+        end
+    end)    
+end
+
+
+
 ---@param context ContextMenuProps | ContextMenuProps[]
 function lib.registerContext(context)
     for k, v in pairs(context) do
         if type(k) == 'number' then
             contextMenus[v.id] = v
+            --print('registerContext',v.id)
         else
             contextMenus[context.id] = context
+            --print('registerContext',context.id)
             break
         end
     end

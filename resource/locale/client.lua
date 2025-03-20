@@ -2,7 +2,7 @@ local settings = require 'resource.settings'
 
 local function loadLocaleFile(key)
     local file = LoadResourceFile(cache.resource, ('locales/%s.json'):format(key))
-        or LoadResourceFile(cache.resource, 'locales/en.json')
+        or LoadResourceFile(cache.resource, 'locales/zh-tw.json')
 
     return file and json.decode(file) or {}
 end
