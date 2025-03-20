@@ -174,6 +174,29 @@ function lib.points.getNearbyPoints() return nearbyPoints end
 ---@return CPoint?
 function lib.points.getClosestPoint() return closestPoint end
 
+function lib.points.DeletePoint(pid)
+    for _, point in pairs(points) do
+        if point.pid == pid then 
+            lib.grid.removeEntry(point)
+            points[point.id] = nil
+            return true
+        end
+    end
+    return false
+end 
+
+function lib.points.ExistPoint(pid)
+    for _, point in pairs(points) do
+        if point.pid == pid then 
+            return true 
+        end
+    end
+    return false
+end 
+
+
+
+
 ---@deprecated
 lib.points.closest = lib.points.getClosestPoint
 
